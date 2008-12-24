@@ -1,7 +1,7 @@
 %define name	ocaml-extlib
 %define up_name extlib
 %define version	1.5.1
-%define release	%mkrel 1
+%define release	%mkrel 2
 
 Name:		%{name}
 Version:	%{version}
@@ -11,9 +11,8 @@ License:	LGPL
 Group:		Development/Other
 URL:		http://code.google.com/p/ocaml-extlib/
 Source:	    http://ocaml-extlib.googlecode.com/files/%{up_name}-%{version}.tar.gz	
-Patch:      extlib-1.5.1-install-flags.patch
 BuildRequires:	ocaml
-BuildRequires:  findlib
+BuildRequires:  ocaml-findlib
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
@@ -34,7 +33,6 @@ using %{name}.
 
 %prep
 %setup -q -n %{up_name}-%{version}
-%patch -p 1
 
 %build
 make 
@@ -43,8 +41,8 @@ make doc
 
 %install
 rm -rf %{buildroot}
-install -d -m 755 %{buildroot}/%{ocaml_sitelib}
-make install OCAMLFIND_INSTFLAGS="-destdir %{buildroot}/%{ocaml_sitelib}"
+install -d -m 755 %{buildroot}/%{_libdir}/ocaml
+make install OCAMLFIND_DESTDIR="%{buildroot}/%{_libdir}/ocaml"
 
 %clean
 rm -rf %{buildroot}
@@ -52,11 +50,13 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc README.txt LICENSE
-%dir %{ocaml_sitelib}/extlib
-%{ocaml_sitelib}/extlib/*.cmi
+%dir %{_libdir}/ocaml/extlib
+%{_libdir}/ocaml/extlib/*.cmi
+%{_libdir}/ocaml/extlib/*.cma
+%{_libdir}/ocaml/extlib/META
 
 %files devel
 %defattr(-,root,root)
-%{ocaml_sitelib}/extlib/*
-%exclude %{ocaml_sitelib}/extlib/*.cmi
-
+%{_libdir}/ocaml/extlib/*.a
+%{_libdir}/ocaml/extlib/*.cmxa
+%{_libdir}/ocaml/extlib/*.mli
