@@ -31,6 +31,14 @@ Requires:	%{name} = %{version}-%{release}
 This package contains the development files needed to build applications
 using %{name}.
 
+%package	doc
+Summary:	Documentation for %{name}
+Group:		Development/Other
+Requires:	%{name} = %{version}-%{release}
+
+%description doc
+This package provides the documentation in HTML about the library %{name}.
+
 %prep
 %setup -q -n %{up_name}-%{version}
 
@@ -43,6 +51,10 @@ make doc
 rm -rf %{buildroot}
 install -d -m 755 %{buildroot}/%{_libdir}/ocaml
 make install OCAMLFIND_DESTDIR="%{buildroot}/%{_libdir}/ocaml"
+# install doc
+install -d -m 755 %{buildroot}/%{_datadir}/doc/%{name}/
+install -m 644 doc/* %{buildroot}/%{_datadir}/doc/%{name}/
+install -m 644 *.ml %{buildroot}/%{_libdir}/ocaml/extlib/
 
 %clean
 rm -rf %{buildroot}
@@ -59,4 +71,9 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/ocaml/extlib/*.a
 %{_libdir}/ocaml/extlib/*.cmxa
+
+%files doc
+%defattr(-,root,root)
+%{_datadir}/doc/%{name}/*
 %{_libdir}/ocaml/extlib/*.mli
+%{_libdir}/ocaml/extlib/*.ml
