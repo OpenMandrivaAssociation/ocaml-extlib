@@ -61,7 +61,6 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc README.txt LICENSE
 %dir %{_libdir}/ocaml/extlib
 %{_libdir}/ocaml/extlib/*.cmi
 %{_libdir}/ocaml/extlib/*.cma
@@ -74,6 +73,7 @@ rm -rf %{buildroot}
 
 %files doc
 %defattr(-,root,root)
+%doc README.txt LICENSE
 %{_datadir}/doc/%{name}/*
 %{_libdir}/ocaml/extlib/*.mli
 %{_libdir}/ocaml/extlib/*.ml
