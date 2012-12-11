@@ -77,3 +77,27 @@ rm -rf %{buildroot}
 %{_datadir}/doc/%{name}/*
 %{_libdir}/ocaml/extlib/*.mli
 %{_libdir}/ocaml/extlib/*.ml
+
+
+%changelog
+* Wed May 09 2012 Crispin Boylan <crisb@mandriva.org> 1.5.2-1
++ Revision: 797662
+- New release
+
+* Sat Jun 27 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.5.1-3mdv2011.0
++ Revision: 390042
+- rebuild
+
+* Sun Jan 18 2009 Florent Monnier <blue_prawn@mandriva.org> 1.5.1-2mdv2010.0
++ Revision: 330967
+- added a doc package
+
+* Wed Dec 24 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.5.1-2mdv2009.1
++ Revision: 318345
+- move non-devel files in main package
+- site-lib hierarchy doesn't exist anymore
+
+* Wed Aug 13 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.5.1-1mdv2009.0
++ Revision: 271545
+- import ocaml-extlib
+
