@@ -70,6 +70,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/ocaml/extlib/*.a
 %{_libdir}/ocaml/extlib/*.cmxa
+%{_libdir}/ocaml/extlib/*.cmx
 
 %files doc
 %defattr(-,root,root)
