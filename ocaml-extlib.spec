@@ -1,6 +1,6 @@
 %define name	ocaml-extlib
 %define up_name extlib
-%define version	1.5.2
+%define version	1.5.3
 %define release	1
 
 Name:		%{name}
