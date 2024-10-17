@@ -10,7 +10,7 @@ Release:	%{release}
 Summary:	Extended Standard Library for Objective Caml
 License:	LGPL
 Group:		Development/Other
-URL:		http://code.google.com/p/ocaml-extlib/
+URL:		https://code.google.com/p/ocaml-extlib/
 Source:	    http://ocaml-extlib.googlecode.com/files/%{up_name}-%{version}.tar.gz	
 BuildRequires:	ocaml
 BuildRequires:  ocaml-findlib
