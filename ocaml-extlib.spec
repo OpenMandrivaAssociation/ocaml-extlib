@@ -12,6 +12,7 @@ License:	LGPL
 Group:		Development/Other
 URL:		https://code.google.com/p/ocaml-extlib/
 Source:	    http://ocaml-extlib.googlecode.com/files/%{up_name}-%{version}.tar.gz	
+BuildRequires:	make
 BuildRequires:	ocaml
 BuildRequires:  ocaml-findlib
 BuildRoot:	%{_tmppath}/%{name}-%{version}
